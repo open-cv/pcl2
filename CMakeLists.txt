@@ -19,13 +19,16 @@ if(WIN32 AND NOT DEFINED CMAKE_DEBUG_POSTFIX)
   set(CMAKE_DEBUG_POSTFIX "-gd")
 endif()
 
+include(${PCL_SOURCE_DIR}/cmake/pcl_options.cmake)
+
 # ---[ Android check
-if (ANDROID_NDK)
-  set (PCL_SHARED_LIBS OFF)
+if(ANDROID_NDK)
+  set(PCL_SHARED_LIBS OFF CACHE BOOL "Build shared libraries." FORCE)
+  set(PCL_LIB_PREFIX ${CMAKE_STATIC_LIBRARY_PREFIX})
+  set(PCL_LIB_SUFFIX ${CMAKE_STATIC_LIBRARY_SUFFIX})
+  set(PCL_LIB_TYPE "STATIC")
   message ("PCL shared libs on Android must be: ${PCL_SHARED_LIBS}")
 endif()
-
-include(${PCL_SOURCE_DIR}/cmake/pcl_options.cmake)
 
 # ---[ Unix/Darwin/Windows specific flags
 if(UNIX OR APPLE)
