@@ -1,15 +1,15 @@
 /**
  * Software License Agreement (BSD License)
- * 
+ *
  * Point Cloud Library (PCL) - www.pointclouds.org
  * Copyright (c) 2009-2012, Willow Garage, Inc.
- * 
+ *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
- * are met: 
- * 
+ * are met:
+ *
  *  * Redistributions of source code must retain the above copyright
  *    notice, this list of conditions and the following disclaimer.
  *  * Redistributions in binary form must reproduce the above
@@ -19,7 +19,7 @@
  *  * Neither the name of Willow Garage, Inc. nor the names of its
  *    contributors may be used to endorse or promote products derived
  *    from this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -36,7 +36,7 @@
  */
 
 /** \file typed_matrix.hpp
- * \brief Contains class definitions for pcl2::TypedMat and pcl2::ConstTypedMat 
+ * \brief Contains class definitions for pcl2::TypedMat and pcl2::ConstTypedMat
  */
 
 #ifndef PCL2_TYPED_MATRIX_HPP
@@ -72,14 +72,14 @@ pcl2::TypedMat<T>::operator () (size_t i, size_t j)
 }
 
 template <typename T>
-const T & 
+const T &
 pcl2::TypedMat<T>::operator () (size_t i, size_t j) const
 {
   return ((*typed_matrix_ptr_) (i, j));
 }
 
 template <typename T>
-const T & 
+const T &
 pcl2::TypedMat<T>::operator [] (size_t i) const
 {
   size_t i2 = i % rows ();
@@ -112,14 +112,14 @@ pcl2::TypedMat<T>::operator () (const TypedMat<int> & indices)
 }
 
 template <typename T>
-void 
+void
 pcl2::TypedMat<T>::fill (const T & value)
 {
   typed_matrix_ptr_->fill (value);
 }
 
 template <typename T>
-void 
+void
 pcl2::TypedMat<T>::fill (const TypedMat<T> & matrix)
 {
   typed_matrix_ptr_->fill (*boost::static_pointer_cast<const core::TypedMatImpl<T> > (matrix.getPtr ()));

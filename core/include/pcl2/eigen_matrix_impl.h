@@ -1,15 +1,15 @@
 /**
  * Software License Agreement (BSD License)
- * 
+ *
  * Point Cloud Library (PCL) - www.pointclouds.org
  * Copyright (c) 2009-2012, Willow Garage, Inc.
- * 
+ *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
- * are met: 
- * 
+ * are met:
+ *
  *  * Redistributions of source code must retain the above copyright
  *    notice, this list of conditions and the following disclaimer.
  *  * Redistributions in binary form must reproduce the above
@@ -19,7 +19,7 @@
  *  * Neither the name of Willow Garage, Inc. nor the names of its
  *    contributors may be used to endorse or promote products derived
  *    from this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -35,7 +35,7 @@
  *
  */
 
-/** \file eigen_matrix_impl.h 
+/** \file eigen_matrix_impl.h
  * \brief Contains class declaration for pcl2::EigenMatImpl
  */
 
@@ -62,7 +62,7 @@ namespace core
 
 /** \brief The implementation for a shared Eigen matrix */
 template<typename T>
-class EigenMatImpl : public TypedMatImpl<T>, public boost::enable_shared_from_this<EigenMatImpl<T> > 
+class EigenMatImpl : public TypedMatImpl<T>, public boost::enable_shared_from_this<EigenMatImpl<T> >
 {
 public:
   /** \brief a shared pointer to a EigenMatImpl */
@@ -79,7 +79,7 @@ private:
   EigenMatImpl (const EigenMatImpl<T> & f);
 
 protected:
-  /** \brief Construct a new EigenMatImpl with the specified number of rows and columns 
+  /** \brief Construct a new EigenMatImpl with the specified number of rows and columns
    *
    * \param rows The number of rows
    * \param cols The number of cols
@@ -89,7 +89,7 @@ protected:
 public:
   virtual MatImpl::Ptr copy () const;
 
-  /** \brief Create a new EigenMatImpl of the given size 
+  /** \brief Create a new EigenMatImpl of the given size
    *
    * \param rows The number of rows in the new matrix
    * \param cols The number of cols in the new matrix
@@ -97,8 +97,8 @@ public:
    */
   virtual MatImpl::Ptr createNew (size_t rows, size_t cols) const;
 
-  /** \brief Create a new MatViewImpl from this EigenMatImpl and the 
-   * provided indices 
+  /** \brief Create a new MatViewImpl from this EigenMatImpl and the
+   * provided indices
    *
    * \param indices A matrix of integers indexing rows of this matrix
    * \return A shared pointer to a new MatViewImpl

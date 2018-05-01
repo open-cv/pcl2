@@ -1,15 +1,15 @@
 /**
  * Software License Agreement (BSD License)
- * 
+ *
  * Point Cloud Library (PCL) - www.pointclouds.org
  * Copyright (c) 2009-2012, Willow Garage, Inc.
- * 
+ *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
- * are met: 
- * 
+ * are met:
+ *
  *  * Redistributions of source code must retain the above copyright
  *    notice, this list of conditions and the following disclaimer.
  *  * Redistributions in binary form must reproduce the above
@@ -19,7 +19,7 @@
  *  * Neither the name of Willow Garage, Inc. nor the names of its
  *    contributors may be used to endorse or promote products derived
  *    from this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -35,7 +35,7 @@
  *
  */
 
-/** \file exception.h 
+/** \file exception.h
  * \brief Contains class definitions for pcl2::Exception and its various subclasses
  */
 
@@ -57,7 +57,7 @@ public:
   virtual std::string what () { return ("GenericException"); }
 };
 
-/** \brief Bad cast exception 
+/** \brief Bad cast exception
  *
  * Thrown when attempting to convert a pointer to an improper type
  */
@@ -67,7 +67,7 @@ public:
   virtual std::string what () { return ("BadCastException"); }
 };
 
-/** \brief Channel not found exception 
+/** \brief Channel not found exception
  *
  * Thrown when attempting to access a non-existent channel
  */
@@ -77,9 +77,9 @@ public:
   virtual std::string what () { return ("ChannelNotFoundException"); }
 };
 
-/** \brief Incompatible size exception 
+/** \brief Incompatible size exception
  *
- * Thrown when attempting to perform an operation with clouds/matrices whose 
+ * Thrown when attempting to perform an operation with clouds/matrices whose
  * sizes are mismatched.
  */
 class IncompatibleSizeException : public Exception
@@ -88,6 +88,6 @@ public:
   virtual std::string what () { return ("IncompatibleSizesException"); }
 };
 
-}
+} // namespace pcl2
 
 #endif // PCL2_EXCEPTION_H

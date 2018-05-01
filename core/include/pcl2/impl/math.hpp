@@ -1,15 +1,15 @@
 /**
  * Software License Agreement (BSD License)
- * 
+ *
  * Point Cloud Library (PCL) - www.pointclouds.org
  * Copyright (c) 2009-2012, Willow Garage, Inc.
- * 
+ *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
- * are met: 
- * 
+ * are met:
+ *
  *  * Redistributions of source code must retain the above copyright
  *    notice, this list of conditions and the following disclaimer.
  *  * Redistributions in binary form must reproduce the above
@@ -19,7 +19,7 @@
  *  * Neither the name of Willow Garage, Inc. nor the names of its
  *    contributors may be used to endorse or promote products derived
  *    from this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -36,7 +36,7 @@
  */
 
 /** \file math.hpp
- * \brief Defines functions for performing basic arithmethic on matrices
+ * \brief Defines functions for performing basic arithmetic on matrices
  */
 
 #include "pcl2/math.h"
@@ -55,7 +55,7 @@ pcl2::computeSum (const TypedMat<T> & input)
   {
     sum += row;
   }
-  
+
   return (sum);
 }
 
@@ -69,7 +69,7 @@ pcl2::computeProduct (const TypedMat<T> & input)
   {
     product *= row;
   }
-  
+
   return (product);
 }
 
@@ -79,9 +79,9 @@ pcl2::computeCumulativeSum (const TypedMat<T> & input)
 {
   EigenMat<T> sum (1, input.cols ());
   sum << 0.0;
-  
+
   EigenMat<T> output (input.rows (), input.cols ());
-  typename TypedMat<T>::Row output_row = output (0);  
+  typename TypedMat<T>::Row output_row = output (0);
 
   for (typename TypedMat<T>::Row input_row = input (0); input_row.hasNext (); input_row.advance ())
   {
@@ -99,9 +99,9 @@ pcl2::computeCumulativeProduct (const TypedMat<T> & input)
 {
   EigenMat<T> product (1, input.cols ());
   product << 1.0;
-  
+
   EigenMat<T> output (input.rows (), input.cols ());
-  typename TypedMat<T>::Row output_row = output (0);  
+  typename TypedMat<T>::Row output_row = output (0);
 
   for (typename TypedMat<T>::Row input_row = input (0); input_row.hasNext (); input_row.advance ())
   {
@@ -134,7 +134,7 @@ pcl2::computeOuterProduct (const TypedMat<T> & vec1, const TypedMat<T> & vec2)
 {
   assert (vec1.rows () == 1 || vec1.cols () == 1);
   assert (vec2.rows () == 1 || vec2.cols () == 1);
-  
+
   size_t n = vec1.rows () * vec1.cols ();
   size_t m = vec2.rows () * vec2.cols ();
   EigenMat<T> output (n, m);
@@ -162,7 +162,7 @@ pcl2::computeEigenvalues3x3 (const TypedMat<T> & input)
   eigen33 (matrix, eigenvectors, eigenvalues);
 
   // Copy the eigenvalues into the output matrix
-  TypedMat<T> output = input (0).copy (); /// \todo, come up with a way to create new TypedMat<T>s 
+  TypedMat<T> output = input (0).copy (); /// \todo, come up with a way to create new TypedMat<T>s
   Eigen::Map<Eigen::Matrix<T, 1, 3> > output_map (&output (0, 0));
   output_map = eigenvalues;
 
@@ -187,7 +187,7 @@ pcl2::computeEigenvectors3x3 (const TypedMat<T> & input)
   eigen33 (matrix, eigenvectors, eigenvalues);
 
   // Copy the eigenvectors into the output matrix
-  TypedMat<T> output = input.copy (); /// \todo, come up with a way to create new TypedMat<T>s 
+  TypedMat<T> output = input.copy (); /// \todo, come up with a way to create new TypedMat<T>s
   Eigen::Map<Eigen::Matrix<T, 3, 3> > output_map (&output (0, 0));
   output_map = eigenvectors.transpose ();
 

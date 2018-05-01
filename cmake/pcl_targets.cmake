@@ -143,7 +143,7 @@ macro(PCL_CUDA_ADD_LIBRARY _name _component)
     else(PCL_SHARED_LIBS)
         cuda_add_library(${_name} ${PCL_LIB_TYPE} ${ARGN})
     endif(PCL_SHARED_LIBS)
-    
+
     # must link explicitly against boost.
     target_link_libraries(${_name} ${Boost_LIBRARIES})
     #
@@ -209,7 +209,7 @@ endmacro(PCL_ADD_EXECUTABLE)
 # Add an executable target as a bundle when available and required
 # _name The executable name.
 # _component The part of PCL that this library belongs to.
-# _bundle 
+# _bundle
 # ARGN the source files for the library.
 macro(PCL_ADD_EXECUTABLE_OPT_BUNDLE _name _component)
 if(APPLE AND VTK_USE_COCOA)
@@ -246,7 +246,7 @@ if(APPLE AND VTK_USE_COCOA)
 #     add_custom_command(TARGET ${_name}
 #                         POST_BUILD
 #                         COMMAND ${CMAKE_COMMAND} -E create_symlink ${PCL_OUTPUT_BIN_DIR}/${_name}.app/Contents/MacOS/${_name} ${PCL_OUTPUT_BIN_DIR}/${_name}
-# #			WORKING_DIRECTORY 
+# #			WORKING_DIRECTORY
 #                         COMMENT "Creating an alias for ${_name}.app to ${_name}")
     install(TARGETS ${_name} BUNDLE DESTINATION ${BIN_INSTALL_DIR} COMPONENT ${_component})
 else(APPLE AND VTK_USE_COCOA)
@@ -277,7 +277,7 @@ macro(PCL_CUDA_ADD_EXECUTABLE _name _component)
     if(USE_PROJECT_FOLDERS)
       set_target_properties(${_name} PROPERTIES FOLDER "Tools and demos")
     endif(USE_PROJECT_FOLDERS)
-  
+
     set(PCL_EXECUTABLES ${PCL_EXECUTABLES} ${_name})
     install(TARGETS ${_name} RUNTIME DESTINATION ${BIN_INSTALL_DIR}
         COMPONENT ${_component})
@@ -365,7 +365,7 @@ endmacro(PCL_ADD_LINKFLAGS)
 
 ###############################################################################
 # Make a pkg-config file for a library. Do not include general PCL stuff in the
-# arguments; they will be added automaticaly.
+# arguments; they will be added automatically.
 # _name The library name. "pcl_" will be preprended to this.
 # _component The part of PCL that this pkg-config file belongs to.
 # _desc Description of the library.
@@ -460,7 +460,7 @@ endmacro(PCL_GET_SUBSYS_STATUS)
 # _dependee Dependant subsystem.
 # _status AUTO_OFF to disable AUTO_ON to enable
 # ARGN[0] Reason for not building.
-macro(PCL_SET_SUBSYS_HYPERSTATUS _name _dependee _status) 
+macro(PCL_SET_SUBSYS_HYPERSTATUS _name _dependee _status)
     SET_IN_GLOBAL_MAP(PCL_SUBSYS_HYPERSTATUS ${_name}_${_dependee} ${_status})
     if(${ARGC} EQUAL 4)
         SET_IN_GLOBAL_MAP(PCL_SUBSYS_REASONS ${_dependee} ${ARGV3})
@@ -496,7 +496,7 @@ endmacro(PCL_UNSET_SUBSYS_HYPERSTATUS)
 ###############################################################################
 # Set the include directory name of a subsystem.
 # _name Subsystem name.
-# _includedir Name of subdirectory for includes 
+# _includedir Name of subdirectory for includes
 # ARGN[0] Reason for not building.
 macro(PCL_SET_SUBSYS_INCLUDE_DIR _name _includedir)
     SET_IN_GLOBAL_MAP(PCL_SUBSYS_INCLUDE ${_name} ${_includedir})
@@ -540,8 +540,8 @@ endmacro(PCL_WRITE_STATUS_REPORT)
 ##############################################################################
 # Collect subdirectories from dirname that contains filename and store them in
 #  varname.
-# WARNING If extra arguments are given then they are considered as exception 
-# list and varname will contain subdirectories of dirname that contains 
+# WARNING If extra arguments are given then they are considered as exception
+# list and varname will contain subdirectories of dirname that contains
 # fielename but doesn't belong to exception list.
 # dirname IN parent directory
 # filename IN file name to look for in each subdirectory of parent directory
@@ -562,7 +562,7 @@ macro(collect_subproject_directory_names dirname filename names dirs)
         foreach(file ${globbed})
             get_filename_component(dir ${file} PATH)
             set(${dirs} ${${dirs}} ${dir})
-        endforeach(file)      
+        endforeach(file)
     endif(${ARGC} GREATER 3)
     foreach(subdir ${${dirs}})
         file(STRINGS ${dirname}/${subdir}/CMakeLists.txt name REGEX "set.*SUBSYS_NAME .*\\)$")
@@ -638,7 +638,7 @@ macro (PCL_ADD_DOC _subsys)
     endif(DOXYGEN_DOT_EXECUTABLE)
     if(NOT "${dependencies}" STREQUAL "")
       set(STRIPPED_HEADERS "${PCL_SOURCE_DIR}/${dependencies}/include")
-      string(REPLACE ";" "/include \\\n\t\t\t\t\t\t\t\t\t\t\t\t ${PCL_SOURCE_DIR}/" 
+      string(REPLACE ";" "/include \\\n\t\t\t\t\t\t\t\t\t\t\t\t ${PCL_SOURCE_DIR}/"
              STRIPPED_HEADERS "${STRIPPED_HEADERS}")
     endif(NOT "${dependencies}" STREQUAL "")
     set(DOC_SOURCE_DIR "\"${CMAKE_CURRENT_SOURCE_DIR}\"\\")

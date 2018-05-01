@@ -9,20 +9,20 @@ PCL_SUBSYS_DEPEND(build ${SUBSYS_NAME} DEPS ${SUBSYS_DEPS})
 #PCL_ADD_DOC(${SUBSYS_NAME})
 
 if(build)
-    set(srcs 
+    set(srcs
         src/fit.cpp
         src/icp.cpp
         src/transform.cpp
        )
 
-    set(incs 
+    set(incs
         include/pcl2/registration/correspondence_identification.h
         include/pcl2/registration/fit.h
         include/pcl2/registration/icp.h
         include/pcl2/registration/transform.h
         )
-        
-    set(impl_incs 
+
+    set(impl_incs
         )
 
     set(LIB_NAME pcl2_${SUBSYS_NAME})

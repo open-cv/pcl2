@@ -9,15 +9,15 @@ PCL_SUBSYS_DEPEND(build ${SUBSYS_NAME} DEPS ${SUBSYS_DEPS})
 #PCL_ADD_DOC(${SUBSYS_NAME})
 
 if(build)
-    set(srcs 
+    set(srcs
         src/io.cpp
        )
 
-    set(incs 
+    set(incs
         include/pcl2/io/io.h
         )
-        
-    set(impl_incs 
+
+    set(impl_incs
         )
 
     set(LIB_NAME pcl2_${SUBSYS_NAME})

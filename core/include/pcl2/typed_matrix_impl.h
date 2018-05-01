@@ -1,15 +1,15 @@
 /**
  * Software License Agreement (BSD License)
- * 
+ *
  * Point Cloud Library (PCL) - www.pointclouds.org
  * Copyright (c) 2009-2012, Willow Garage, Inc.
- * 
+ *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
- * are met: 
- * 
+ * are met:
+ *
  *  * Redistributions of source code must retain the above copyright
  *    notice, this list of conditions and the following disclaimer.
  *  * Redistributions in binary form must reproduce the above
@@ -19,7 +19,7 @@
  *  * Neither the name of Willow Garage, Inc. nor the names of its
  *    contributors may be used to endorse or promote products derived
  *    from this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -35,7 +35,7 @@
  *
  */
 
-/** \file typed_matrix_impl.h 
+/** \file typed_matrix_impl.h
  * \brief Contains class declaration for pcl2::TypedMatImpl
  */
 
@@ -53,7 +53,7 @@ template <typename T> class SpatialIndex;
 namespace core
 {
 
-/** \brief An abstract matrix implementation templated on scalar type 
+/** \brief An abstract matrix implementation templated on scalar type
  * (e.g., float, int)
  *
  * The TypedMatImpl class extends the base MatImpl class to add element
@@ -72,13 +72,13 @@ public:
 
   /** \brief Fill in the values of this matrix using the values from the provided
    * matrix
-   * \param matrix_ptr The matrix whose values will be copied into this matrix.
+   * \param matrix The matrix whose values will be copied into this matrix.
    * The size of the input matrix must be compatible with the matrix being filled.
    *
    * \throws IncompatibleSizeException
    * \see Mat::fill (const Mat & matrix)
    */
-  virtual void fill (const TypedMatImpl<T> & matrix) = 0; 
+  virtual void fill (const TypedMatImpl<T> & matrix) = 0;
 
   virtual void fill (const T & value) = 0;
 

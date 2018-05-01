@@ -1,15 +1,15 @@
 /**
  * Software License Agreement (BSD License)
- * 
+ *
  * Point Cloud Library (PCL) - www.pointclouds.org
  * Copyright (c) 2009-2012, Willow Garage, Inc.
- * 
+ *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
- * are met: 
- * 
+ * are met:
+ *
  *  * Redistributions of source code must retain the above copyright
  *    notice, this list of conditions and the following disclaimer.
  *  * Redistributions in binary form must reproduce the above
@@ -19,7 +19,7 @@
  *  * Neither the name of Willow Garage, Inc. nor the names of its
  *    contributors may be used to endorse or promote products derived
  *    from this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -71,7 +71,7 @@ createIdentity (size_t n)
   output << 0;
   for (size_t i = 0; i < n; ++i)
     output (i, i) = 1;
-  return (output); 
+  return (output);
 }
 
 template <typename T>
@@ -79,14 +79,14 @@ TypedMat<T>
 createRandom (size_t rows, size_t cols)
 {
   unsigned seed = static_cast<unsigned> (std::time(0));
-  boost::mt19937 generator (seed);                
-  boost::uniform_01<> uniform_dist;    
-  boost::variate_generator<boost::mt19937, boost::uniform_01<> > rand (generator, uniform_dist);  
+  boost::mt19937 generator (seed);
+  boost::uniform_01<> uniform_dist;
+  boost::variate_generator<boost::mt19937, boost::uniform_01<> > rand (generator, uniform_dist);
 
   EigenMat<T> output (rows, cols);
   for (size_t j = 0; j < cols; ++j)
     for (size_t i = 0; i < rows; ++i)
-      output (i, j) = rand (); 
+      output (i, j) = rand ();
   return (output);
 }
 

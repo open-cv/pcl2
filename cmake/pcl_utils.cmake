@@ -62,7 +62,7 @@ endmacro(DISSECT_VERSION)
 # distinguish between the UNIX variants. Otherwise, use the CMake variables
 # such as WIN32 and APPLE and CYGWIN.
 # Sets OS_IS_64BIT if the operating system is 64-bit.
-# Sets LINUX if the operating system is Linux.
+# Sets OS_IS_LINUX if the operating system is Linux.
 macro(GET_OS_INFO)
     string(REGEX MATCH "Linux" OS_IS_LINUX ${CMAKE_SYSTEM_NAME})
     if(CMAKE_SIZEOF_VOID_P EQUAL 8)
@@ -75,15 +75,15 @@ endmacro(GET_OS_INFO)
 
 ###############################################################################
 # Set the destination directories for installing stuff.
-# Sets LIB_INSTALL_DIR. Install libraries here.
-# Sets BIN_INSTALL_DIR. Install binaries here.
-# Sets INCLUDE_INSTALL_DIR. Install include files here, preferably in a
+# Set LIB_INSTALL_DIR. Install libraries here.
+# Set BIN_INSTALL_DIR. Install binaries here.
+# Set INCLUDE_INSTALL_DIR. Install include files here, preferably in a
 # subdirectory named after the library in question (e.g.
 # "registration/blorgle.h")
 macro(SET_INSTALL_DIRS)
-  if (NOT DEFINED LIB_INSTALL_DIR)
-    set(LIB_INSTALL_DIR "lib")
-  endif (NOT DEFINED LIB_INSTALL_DIR)
+    if (NOT DEFINED LIB_INSTALL_DIR)
+      set(LIB_INSTALL_DIR "lib")
+    endif (NOT DEFINED LIB_INSTALL_DIR)
     set(INCLUDE_INSTALL_ROOT
         "include/${PROJECT_NAME_LOWER}-${PCL_MAJOR_VERSION}.${PCL_MINOR_VERSION}")
     set(INCLUDE_INSTALL_DIR "${INCLUDE_INSTALL_ROOT}/pcl")

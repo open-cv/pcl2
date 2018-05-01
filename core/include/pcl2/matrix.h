@@ -1,15 +1,15 @@
 /**
  * Software License Agreement (BSD License)
- * 
+ *
  * Point Cloud Library (PCL) - www.pointclouds.org
  * Copyright (c) 2009-2012, Willow Garage, Inc.
- * 
+ *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
- * are met: 
- * 
+ * are met:
+ *
  *  * Redistributions of source code must retain the above copyright
  *    notice, this list of conditions and the following disclaimer.
  *  * Redistributions in binary form must reproduce the above
@@ -19,7 +19,7 @@
  *  * Neither the name of Willow Garage, Inc. nor the names of its
  *    contributors may be used to endorse or promote products derived
  *    from this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -35,7 +35,7 @@
  *
  */
 
-/** \file matrix.h 
+/** \file matrix.h
  * \brief Contains class declaration for pcl2::Mat
  */
 
@@ -55,18 +55,18 @@ class MatImpl;
 
 template <typename T> class TypedMat;
 
-/** \brief This class defines a shared 2D matrix object and serves as the core 
+/** \brief This class defines a shared 2D matrix object and serves as the core
  * matrix data structure in PCL
  *
  * This is the data structure in which all point data is stored (e.g., a point's
- * x,y,z-position, color, 3D surface normal, feature descritor, etc.).  When
- * representing point data, each row of the matrix will represent a single 
+ * x,y,z-position, color, 3D surface normal, feature descriptor, etc.).  When
+ * representing point data, each row of the matrix will represent a single
  * point, and each column will represent a dimension.  For example, a cloud of N
  * 3-dimensional points, will be stored as an N by 3 Mat.  Such Mats of
- * point data are often labeled with a channel name (e.g., "xyz") and stored in 
+ * point data are often labeled with a channel name (e.g., "xyz") and stored in
  * a Cloud object so that multiple channels of data can be associated together.
  *
- * \note This class serves as a pointer to the actual data, so copying this 
+ * \note This class serves as a pointer to the actual data, so copying this
  * object does not create a unique copy of its data.  The actual implementation
  * (i.e., the data and methods for operating on it) is contained in an internal
  * MatImpl object.  These MatImpl classes should never be used directly.
@@ -117,18 +117,18 @@ public:
    */
   virtual size_t cols () const;
 
-  /** \brief  Create a view of a subset of rows in this matrix 
+  /** \brief  Create a view of a subset of rows in this matrix
    *
-   * This operator creates a view of the matrix based on a matrix of indices.  
-   * The resulting view will contain a row for each row index defined in 
+   * This operator creates a view of the matrix based on a matrix of indices.
+   * The resulting view will contain a row for each row index defined in
    * \a indices.  The elements in each row of the view will be references to the
    * corresponding elements in the original matrix.
-   * 
+   *
    * Note that the matrix data is not copied; any changes made to the view's data
-   * will also affect the corresponding values in the original matrix and vice 
+   * will also affect the corresponding values in the original matrix and vice
    * versa.
    *
-   * \param indices An N by 1 matrix of integer indices in the matrix.  Each 
+   * \param indices An N by 1 matrix of integer indices in the matrix.  Each
    * element in must be a valid row index in the matrix.
    * \return An NxM matrix referencing the rows indexed by \a indices, where N is
    * the number of rows in \a indices and M is the number of columns in the
@@ -144,6 +144,6 @@ protected:
 
 };
 
-}
+} // namespace pcl2
 
 #endif

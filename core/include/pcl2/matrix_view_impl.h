@@ -1,15 +1,15 @@
 /**
  * Software License Agreement (BSD License)
- * 
+ *
  * Point Cloud Library (PCL) - www.pointclouds.org
  * Copyright (c) 2009-2012, Willow Garage, Inc.
- * 
+ *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
- * are met: 
- * 
+ * are met:
+ *
  *  * Redistributions of source code must retain the above copyright
  *    notice, this list of conditions and the following disclaimer.
  *  * Redistributions in binary form must reproduce the above
@@ -19,7 +19,7 @@
  *  * Neither the name of Willow Garage, Inc. nor the names of its
  *    contributors may be used to endorse or promote products derived
  *    from this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -35,7 +35,7 @@
  *
  */
 
-/** \file matrix_view_impl.h 
+/** \file matrix_view_impl.h
  * \brief Contains class declaration for pcl2::MatViewImpl
  */
 
@@ -53,9 +53,9 @@ namespace core
  * and/or permutation of rows from the original matrix.
  *
  * A MatViewImpl wraps a source matrix and a list of indices and creates a new
- * matrix that appears to contain a row for each index in the provided indices, 
+ * matrix that appears to contain a row for each index in the provided indices,
  * where the elements in each row of the view correspond to the elements at that
- * row in the source matrix. Note that although a view can be used like a true 
+ * row in the source matrix. Note that although a view can be used like a true
  * matrix, it is not an independent copy of the source matrix.  Thus, any changes
  * made to a view's data will also affect the corresponding values in the source
  * matrix and vice versa.
@@ -72,11 +72,11 @@ protected:
   MatViewImpl (const MatViewImpl & a);
 
 public:
-  /** \brief Create a view into the specified rows of the provided matrix 
+  /** \brief Create a view into the specified rows of the provided matrix
    *
-   * This constructor creates a view from a source \a matrix and a matrix of 
-   * \a indices. The resulting view will contain a row for each row index 
-   * defined in  \a indices, and the elements in each row of the view will be 
+   * This constructor creates a view from a source \a matrix and a matrix of
+   * \a indices. The resulting view will contain a row for each row index
+   * defined in  \a indices, and the elements in each row of the view will be
    * references to the corresponding elements in the original matrix.
    *
    * \param matrix The source matrix (i.e., the matrix that is to be "viewed")
